@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.products.models import Jam, ImgJam
+from apps.products.models import Jam, ImgJam, Category
 
 
 class ImgJamInline(admin.TabularInline):
@@ -13,3 +13,7 @@ class JamAdmin(admin.ModelAdmin):
     inlines = [ImgJamInline,]
 
 
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name',) 
+    prepopulated_fields = {'slug':('name',)}
