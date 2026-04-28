@@ -11,6 +11,7 @@ class ImgJamInline(admin.TabularInline):
 class JamAdmin(admin.ModelAdmin):
     list_display = ('title', 'desc')
     inlines = [ImgJamInline,]
+    prepopulated_fields = {'slug':('title',)}
 
 
 @admin.register(Category)
